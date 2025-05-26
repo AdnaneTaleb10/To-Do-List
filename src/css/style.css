@@ -39,6 +39,17 @@ select {
   font: inherit;
 }
 
+:root {
+    --timberwolf: #d3d3d3ff;
+    --french-gray: #adb5bdff;
+    --dim-gray: #6d6a75ff;
+    --argentinian-blue: #64b5f6ff;
+    --dodger-blue: #2196f3ff;
+    
+    --gray: #D3D3D3;
+    --border: 2px solid #D3D3D3;
+}
+
 main {
   display: grid;
   grid-template-columns: 4em 1fr 1fr;
@@ -49,17 +60,19 @@ main {
 header {
   grid-column: 1 / -1;
   grid-row: 1 / 2;
-  border: 2px solid lightgray;
+  border: var(--border);
+  display: flex;
+  align-items: center;
 }
 
 aside {
-  border-right: 2px solid lightgray;
+  border-right: var(--border);
   grid-column: 1 / 2;
   grid-row: 2 / -1;
 }
 
 #left {
-  border-right: 2px solid lightgray;
+  border-right: var(--border);
   grid-column: 2 / 3;
   grid-row: 2 / -1;
 }
@@ -67,4 +80,14 @@ aside {
 #right {
   grid-column: 3 / -1;
   grid-row: 2 / -1;
+}
+
+#logo{
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2.5rem;
+    color: var(--gray);
 }
