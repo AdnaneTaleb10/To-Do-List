@@ -1,6 +1,6 @@
-import headerLogo from "./Assets/to-do-list.png";
-import favicon from "./Assets/logo.png";
-import create from "./domCreate";
+import headerLogo from "./../Assets/to-do-list.png";
+import favicon from "./../Assets/logo.png";
+import create from "../domCreate";
 
 export default function setImages() {
   // Favicon
@@ -15,7 +15,7 @@ export default function setImages() {
   let logoDiv = document.querySelector("#logo");
 
   let logo = create.imgWithSrc(headerLogo);
-  logo.style.width = "1.8em"
+  logo.style.width = "1.8em";
   let logoText = create.el("p", "To-Do-List");
   logoText.style.color = "var(--french-gray)";
 

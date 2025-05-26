@@ -1,3 +1,4 @@
+@import url("https://fonts.cdnfonts.com/css/cascadia-code");
 *::before,
 *::after {
   box-sizing: border-box;
@@ -12,6 +13,9 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-size: 100%;
+  font-family: "Jetbrains Mono";
+  font-family: "Cascadia Code";
+  background-color: var(--background);
 }
 
 img,
@@ -70,9 +74,9 @@ header {
   padding: 0 20px;
 }
 
-#logo{
-    display: flex;
-    gap: 10px;
+#logo {
+  display: flex;
+  gap: 10px;
 }
 
 aside {
@@ -149,4 +153,18 @@ aside i {
 aside i:hover {
   cursor: pointer;
   background-color: rgb(235, 235, 235);
+}
+
+#full-view {
+  position: relative;
+  border-left: var(--border);
+}
+
+#empty-view {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--french-gray);
+  text-align: center;
 }
