@@ -1,0 +1,70 @@
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-size: 100%;
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  overflow-wrap: break-word;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 4em 1fr 1fr;
+  grid-template-rows: 4em 1fr;
+  height: 100vh;
+}
+
+header {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  border: 2px solid lightgray;
+}
+
+aside {
+  border-right: 2px solid lightgray;
+  grid-column: 1 / 2;
+  grid-row: 2 / -1;
+}
+
+#left {
+  border-right: 2px solid lightgray;
+  grid-column: 2 / 3;
+  grid-row: 2 / -1;
+}
+
+#right {
+  grid-column: 3 / -1;
+  grid-row: 2 / -1;
+}

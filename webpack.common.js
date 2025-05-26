@@ -23,7 +23,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html', // Path to the HTML template
-      favicon: './src/Assets/to-do-list.png', // Path to the favicon
     }),
   ],
 };
