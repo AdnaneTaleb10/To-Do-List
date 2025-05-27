@@ -275,7 +275,13 @@ aside i:hover {
 }
 
 .check {
+  margin-left: 0.4em;
   accent-color: var(--logo-blue);
+  transform: scale(1.4);
+}
+
+.check:hover {
+    cursor: pointer;
 }
 
 .info > .title {
