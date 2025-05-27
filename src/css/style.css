@@ -166,6 +166,7 @@ aside i:hover {
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  gap: 1em;
 }
 
 .high {
@@ -180,7 +181,7 @@ aside i:hover {
   background-color: var(--argentinian-blue);
 }
 
-.task {
+/* .task {
   border: 2px solid var(--default-gray);
   border-radius: 15px;
   display: flex;
@@ -238,6 +239,77 @@ aside i:hover {
 .actions button i:hover {
   cursor: pointer;
   background-color: rgb(235, 235, 235);
+} */
+
+.task {
+  margin: 0.5em 0.5em 0.25em 0.5em;
+  border: 2px solid var(--default-gray);
+  border-radius: 15px;
+  border-left: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.6em 1fr;
+  grid-template-rows: 1fr;
+  transition: 0.1s ease-in-out;
+}
+
+.task:hover {
+  cursor: pointer;
+  scale: 1.01;
+}
+
+.priority{
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.wrapper {
+  grid-row: 1 / -1;
+  grid-column: 2 / -1;
+
+  display: grid;
+  grid-template-columns: 30px 1fr 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 0.5em;
+  align-items: center;
+}
+
+.check {
+  accent-color: var(--logo-blue);
+}
+
+.info > .title {
+  color: var(--black);
+  font-size: 1.2rem;
+}
+
+.info > .project {
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+}
+
+.date-and-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+  margin-right: 1em;
+  color: var(--dark-gray);
+  font-size: 1rem;
+}
+
+
+button.actions {
+    background-color: transparent;
+    border: none;
+    padding: 1px 6px;
+    color: var(--dark-gray);
+    border-radius: 3px;
+}
+
+.actions:hover {
+    cursor: pointer;
+    background-color: var(--light-gray);
 }
 
 #full-view {

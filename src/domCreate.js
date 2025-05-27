@@ -12,9 +12,15 @@ const create = (function () {
     return element;
   }
 
-  function elWithClass(el, cl, text) {
+  function elWithClass(el, text, ...cl) {
     const element = document.createElement(el);
-    element.classList.add(`${cl}`);
+    /* element.classList.add(`${cl}`); */
+    if(cl.length > 0){
+      cl.forEach(className => {
+        element.classList.add(className);
+      });
+    }
+
     element.textContent = text;
     return element;
   }
