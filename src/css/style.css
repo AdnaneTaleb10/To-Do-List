@@ -1,4 +1,27 @@
 @import url("https://fonts.cdnfonts.com/css/cascadia-code");
+
+:root {
+  --logo-blue: #2196f3ff;
+  /* Tasks title */
+  --black: #495057;
+
+  /* All other text/icon in tasks cards */
+  --dark-gray: #6d6a75ff;
+
+  /* Border of tasks card */
+  --default-gray: #adb5bdff;
+
+  /* Icons background on hover*/
+  --light-gray: #ebebeb;
+
+  /* Borders */
+  --borders-gray: #d3d3d3;
+
+  --red: #ff5a5a;
+  --yellow: #f6c364;
+  --argentinian-blue: #64b5f6ff;
+}
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -13,9 +36,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-size: 100%;
-  font-family: "Jetbrains Mono";
   font-family: "Cascadia Code";
-  background-color: var(--background);
 }
 
 img,
@@ -43,21 +64,6 @@ select {
   font: inherit;
 }
 
-:root {
-  --timberwolf: #d3d3d3ff;
-  --french-gray: #adb5bdff;
-  --dim-gray: #6d6a75ff;
-  --argentinian-blue: #64b5f6ff;
-  --dodger-blue: #2196f3ff;
-
-  --gray: #d3d3d3;
-  --border: 2px solid #d3d3d3;
-
-  --red: #ff5a5a;
-  --yellow: #f6c364;
-  --argentinian-blue: #64b5f6ff;
-}
-
 main {
   display: grid;
   grid-template-columns: 4em 1fr 1fr;
@@ -68,7 +74,7 @@ main {
 header {
   grid-column: 1 / -1;
   grid-row: 1 / 2;
-  border: var(--border);
+  border: 2px solid var(--borders-gray);
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -80,7 +86,7 @@ header {
 }
 
 aside {
-  border-right: var(--border);
+  border-right: 2px solid var(--borders-gray);
   grid-column: 1 / 2;
   grid-row: 2 / -1;
   display: flex;
@@ -92,7 +98,6 @@ aside {
 }
 
 #left {
-  border-right: var(--border);
   grid-column: 2 / 3;
   grid-row: 2 / -1;
 }
@@ -108,7 +113,7 @@ aside {
   justify-content: center;
   align-items: center;
   font-size: 1.7rem;
-  color: var(--gray);
+  color: var(--default-gray);
 }
 
 #nav-top {
@@ -117,7 +122,7 @@ aside {
   justify-content: center;
   align-items: center;
   gap: 1.5em;
-  color: var(--french-gray);
+  color: var(--default-gray);
 }
 
 #nav-bottom {
@@ -127,11 +132,11 @@ aside {
   align-items: center;
   gap: 1.5em;
   font-size: 1.3em;
-  color: var(--french-gray);
+  color: var(--default-gray);
 }
 
 #nav-bottom > a {
-  color: var(--french-gray);
+  color: var(--default-gray);
 }
 
 aside i {
@@ -155,9 +160,89 @@ aside i:hover {
   background-color: rgb(235, 235, 235);
 }
 
+#min-view {
+  padding: 1.4em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.high {
+  background-color: var(--red);
+}
+
+.medium {
+  background-color: var(--yellow);
+}
+
+.low {
+  background-color: var(--argentinian-blue);
+}
+
+.task {
+  border: 2px solid var(--default-gray);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.6em 0;
+  transition: 0.1s ease-in-out;
+}
+
+.task:hover {
+  cursor: pointer;
+  scale: 1.01;
+}
+
+.priority {
+  height: 140%;
+  width: 0.7em;
+  margin-right: 5px;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+
+.checkbox-div > input{
+  accent-color: var(--logo-blue);
+}
+
+.information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin-right: 25em;
+}
+
+.project-name {
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+}
+
+.due-date {
+  margin-right: 10em;
+  color: var(--dark-gray);
+}
+
+.actions button {
+  background-color: transparent;
+  border: none;
+}
+
+.actions button i {
+  color: var(--dark-gray);
+  padding: 6px;
+}
+
+.actions button i:hover {
+  cursor: pointer;
+  background-color: rgb(235, 235, 235);
+}
+
 #full-view {
   position: relative;
-  border-left: var(--border);
+  border-left: 2px solid var(--borders-gray);
 }
 
 #empty-view {

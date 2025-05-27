@@ -1,40 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/5e7b46bf3f.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/5e7b46bf3f.js"
+      crossorigin="anonymous"
+    ></script>
     <title>To Do List</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <main>
-        <header>
-            <div id="logo"></div>
-        </header>
+      <header>
+        <div id="logo"></div>
+      </header>
 
-        <aside>
-            <div id="nav-top">
-                <i class="fa-solid fa-house"></i>
-                <i class="fa-solid fa-screwdriver-wrench"></i>  
-                <i class="fa-solid fa-circle red"></i>
-                <i class="fa-solid fa-circle yellow"></i>
-                <i class="fa-solid fa-circle blue"></i>
-                <i class="fa-solid fa-plus"></i>
-            </div>
-
-            <div id="nav-bottom">
-                <i class="fa-solid fa-moon"></i>
-                <a href="https://github.com/AdnaneTaleb10"><i class="fa-brands fa-github"></i></a>
-            </div>
-        </aside>
-
-        <div id="min-view"></div>
-
-        <div id="full-view">
-            <div id="empty-view">Try clicking in a task or project to expand it</div>
+      <aside>
+        <div id="nav-top">
+          <i class="fa-solid fa-house"></i>
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          <i class="fa-solid fa-circle red"></i>
+          <i class="fa-solid fa-circle yellow"></i>
+          <i class="fa-solid fa-circle blue"></i>
+          <i class="fa-solid fa-plus"></i>
         </div>
-    </main>
 
-</body>
+        <div id="nav-bottom">
+          <i class="fa-solid fa-moon"></i>
+          <a href="https://github.com/AdnaneTaleb10"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </div>
+      </aside>
+
+      <div id="min-view">
+        <div class="task">
+          <div class="priority high "></div>
+
+          <div class="information">
+            <div class="checkbox-div">
+                <input type="checkbox">
+            </div>
+            <div class="text-div">
+              <p class="task-title">Task card</p>
+              <p class="project-name">To-do List</p>
+            </div>
+          </div>
+
+          <div class="due-date">22-07-2024</div>
+
+          <div class="actions">
+            <button class="edit-task">
+              <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+
+            <button class="delete-task">
+              <i class="fa-regular fa-square-minus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="full-view">
+        <div id="empty-view">
+          Try clicking in a task or project to expand it
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
