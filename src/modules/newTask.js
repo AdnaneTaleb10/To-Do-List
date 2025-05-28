@@ -9,8 +9,6 @@ class Task {
     this.priority = priority.toLowerCase();
     this.description = description;
     this.done = false;
-
-    this.id = null;
   }
 }
 
@@ -28,7 +26,6 @@ function newTaskCard(task) {
   // | | | Edit task btn
   // | | | Remove task button
   const card = create.elWithClass("div", "", "task");
-  card.dataset.id = task.id;
 
   const priority = create.elWithClass("div", "", "priority", task.priority);
 
@@ -56,7 +53,7 @@ function newTaskCard(task) {
   const editBtn = create.el("button");
   const removeBtn = create.el("button");
 
-  removeBtn.addEventListener("click", () => removeCard(task.id));
+  removeBtn.addEventListener("click", (e) => removeCard(removeBtn) );
 
   editBtn.classList.add("actions", "fa-regular", "fa-pen-to-square", "edit");
   removeBtn.classList.add("actions", "fa-regular", "fa-square-minus", "remove");
@@ -69,15 +66,17 @@ function newTaskCard(task) {
   minView.appendChild(card);
 }
 
-function removeCard(id) {
-  const minView = document.querySelector("#min-view");
+function removeCard(btn) {
+  let btnCard = btn.parentElement.parentElement.parentElement;
 
-  while (minView.lastChild) {
-    minView.removeChild(minView.lastChild);
-  }
+  let allCards = document.querySelectorAll('.task');
+  allCards.forEach((card) => {
+    card.remove();
+  })
 
-  tasks.splice(id, 1);
-  displayCards(tasks);
+  tasks.splice(btnCard.dataset.index , 1)
+
+  displayCards()
 }
 
 export { Task, newTaskCard };
