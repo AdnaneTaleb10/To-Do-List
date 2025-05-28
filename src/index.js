@@ -1,12 +1,13 @@
 import "./css/style.css";
 import setImages from "./modules/logo";
-import { Task, pushTask, displayCards } from "./modules/newTask";
-import { Project, pushProject, displayProjects } from "./modules/newProject";
+import { Task, pushTask, displayCards } from "./modules/taskControls";
+import { Project, pushProject, displayProjects } from "./modules/projectControls";
 import { id } from "date-fns/locale";
 
 let tasks = [];
 let projects = [];
 
+// Filling some tasks
 pushTask(
   new Task(
     "Header",
@@ -18,11 +19,31 @@ pushTask(
 );
 pushTask(new Task("Nav", "Dashboard", "13-10-2024", "low", "nav icons"));
 pushTask(new Task("Main", "Library", "10-10-2050", "medium", "libros"));
-console.table(tasks);
-
+/* console.table(tasks);
+ */
+// And some projects
 pushProject(new Project("To-do list", "teste.com", "Ah sei lá n sei oq"));
+pushProject(new Project("Outro projeto", "", "Ah sei lá n sei oq"));
 
-displayCards();
-displayProjects();
+window.onload = displayCards()
 
-export { tasks, projects };
+let homeBtn = document.querySelector("#home");
+homeBtn.addEventListener("click", () => {
+  clearCards();
+  displayCards();
+});
+
+let projectsBtn = document.querySelector("#projects");
+projectsBtn.addEventListener("click", () => {
+  clearCards();
+  displayProjects();
+});
+
+function clearCards() {
+  const minView = document.querySelector("#min-view");
+  while (minView.lastChild) {
+    minView.removeChild(minView.lastChild);
+  }
+}
+
+export { tasks, projects, clearCards };

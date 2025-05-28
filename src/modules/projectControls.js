@@ -1,4 +1,4 @@
-import { projects } from "..";
+import { clearCards, projects } from "..";
 import create from "../domCreate";
 
 class Project {
@@ -66,14 +66,10 @@ function newProjectCard(project) {
 }
 
 function removeCard(btn) {
-  let btnCard = btn.parentElement.parentElement;
+  let btnCard = btn.parentElement.parentElement.parentElement;
 
-  let allCards = document.querySelectorAll(".project-card");
-  allCards.forEach((card) => {
-    card.remove();
-  });
-
-  projects.splice(btnCard.dataset.index, 1);
+  clearCards();
+  projects.splice(btnCard.dataset.proj_id, 1);
 }
 
 function displayProjects() {

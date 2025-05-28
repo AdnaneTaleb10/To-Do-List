@@ -1,5 +1,5 @@
 import create from "../domCreate";
-import { tasks } from "..";
+import { clearCards, tasks } from "..";
 
 class Task {
   constructor(taskTitle, projectTitle, dueDate, priority, description) {
@@ -72,11 +72,7 @@ function newTaskCard(task) {
 function removeCard(btn) {
   let btnCard = btn.parentElement.parentElement.parentElement;
 
-  let allCards = document.querySelectorAll(".task");
-  allCards.forEach((card) => {
-    card.remove();
-  });
-
+  clearCards();
   tasks.splice(btnCard.dataset.index, 1);
 }
 
