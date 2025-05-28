@@ -1,7 +1,8 @@
 import "./css/style.css";
 import setImages from "./modules/logo";
-import { Task, newTaskCard } from "./modules/newTask";
-import Project from "./modules/newProject";
+import { Task, pushTask, displayCards } from "./modules/newTask";
+import { Project, pushProject, displayProjects } from "./modules/newProject";
+import { id } from "date-fns/locale";
 
 let tasks = [];
 let projects = [];
@@ -19,30 +20,9 @@ pushTask(new Task("Nav", "Dashboard", "13-10-2024", "low", "nav icons"));
 pushTask(new Task("Main", "Library", "10-10-2050", "medium", "libros"));
 console.table(tasks);
 
-function pushTask(task) {
-  tasks.push(task);
-}
+pushProject(new Project("To-do list", "teste.com", "Ah sei lá n sei oq"));
 
-function pushProject(project) {
-    projects.push(project)
-};
+displayCards();
+displayProjects();
 
-function displayCards() {
-    for(const task of tasks) {
-        newTaskCard(task)
-    };
-    setDatasetIndex()
-};
-
-function setDatasetIndex() {
-    let index = 0;
-    const cards = document.querySelectorAll('.task');
-    cards.forEach(card => {
-        card.dataset.index = index;
-        index++;
-    });
-};
-
-displayCards(tasks);
-
-export { tasks, projects, displayCards };
+export { tasks, projects };

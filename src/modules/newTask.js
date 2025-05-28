@@ -1,5 +1,5 @@
 import create from "../domCreate";
-import { tasks , displayCards } from "..";
+import { tasks } from "..";
 
 class Task {
   constructor(taskTitle, projectTitle, dueDate, priority, description) {
@@ -53,7 +53,10 @@ function newTaskCard(task) {
   const editBtn = create.el("button");
   const removeBtn = create.el("button");
 
-  removeBtn.addEventListener("click", (e) => removeCard(removeBtn) );
+  removeBtn.addEventListener("click", (e) => {
+    removeCard(removeBtn);
+    displayCards();
+  });
 
   editBtn.classList.add("actions", "fa-regular", "fa-pen-to-square", "edit");
   removeBtn.classList.add("actions", "fa-regular", "fa-square-minus", "remove");
@@ -69,14 +72,32 @@ function newTaskCard(task) {
 function removeCard(btn) {
   let btnCard = btn.parentElement.parentElement.parentElement;
 
-  let allCards = document.querySelectorAll('.task');
+  let allCards = document.querySelectorAll(".task");
   allCards.forEach((card) => {
     card.remove();
-  })
+  });
 
-  tasks.splice(btnCard.dataset.index , 1)
-
-  displayCards()
+  tasks.splice(btnCard.dataset.index, 1);
 }
 
-export { Task, newTaskCard };
+function displayCards() {
+  for (const task of tasks) {
+    newTaskCard(task);
+  }
+  setDatasetIndexTasks();
+}
+
+function setDatasetIndexTasks() {
+  let index = 0;
+  const Taskcards = document.querySelectorAll(".task");
+  Taskcards.forEach((card) => {
+    card.dataset.index = index;
+    index++;
+  });
+}
+
+function pushTask(task) {
+  tasks.push(task);
+}
+
+export { Task, newTaskCard, pushTask, displayCards };

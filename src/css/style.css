@@ -97,16 +97,6 @@ aside {
   font-size: 1.5rem;
 }
 
-#left {
-  grid-column: 2 / 3;
-  grid-row: 2 / -1;
-}
-
-#right {
-  grid-column: 3 / -1;
-  grid-row: 2 / -1;
-}
-
 #logo {
   margin-left: 5px;
   display: flex;
@@ -136,6 +126,12 @@ aside {
 }
 
 #nav-bottom > a {
+  color: var(--default-gray);
+}
+
+aside button {
+  background-color: transparent;
+  border: none;
   color: var(--default-gray);
 }
 
@@ -181,67 +177,8 @@ aside i:hover {
   background-color: var(--argentinian-blue);
 }
 
-/* .task {
-  border: 2px solid var(--default-gray);
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 0.6em 0;
-  transition: 0.1s ease-in-out;
-}
-
-.task:hover {
-  cursor: pointer;
-  scale: 1.01;
-}
-
-.priority {
-  height: 140%;
-  width: 0.7em;
-  margin-right: 5px;
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
-}
-
-.checkbox-div > input{
-  accent-color: var(--logo-blue);
-}
-
-.information {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
-  margin-right: 25em;
-}
-
-.project-name {
-  font-size: 0.8rem;
-  color: var(--dark-gray);
-}
-
-.due-date {
-  margin-right: 10em;
-  color: var(--dark-gray);
-}
-
-.actions button {
-  background-color: transparent;
-  border: none;
-}
-
-.actions button i {
-  color: var(--dark-gray);
-  padding: 6px;
-}
-
-.actions button i:hover {
-  cursor: pointer;
-  background-color: rgb(235, 235, 235);
-} */
-
-.task {
+.task,
+.project-card {
   margin: 0.5em 0.5em 0.25em 0.5em;
   border: 2px solid var(--default-gray);
   border-radius: 15px;
@@ -258,7 +195,8 @@ aside i:hover {
   scale: 1.01;
 }
 
-.priority{
+.priority,
+.project-stripe {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
 }
@@ -281,7 +219,7 @@ aside i:hover {
 }
 
 .check:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .info > .title {
@@ -289,7 +227,8 @@ aside i:hover {
   font-size: 1.2rem;
 }
 
-.info > .project {
+.info > .project,
+.link {
   font-size: 0.8rem;
   color: var(--dark-gray);
 }
@@ -304,18 +243,52 @@ aside i:hover {
   font-size: 1rem;
 }
 
-
 button.actions {
-    background-color: transparent;
-    border: none;
-    padding: 1px 6px;
-    color: var(--dark-gray);
-    border-radius: 3px;
+  background-color: transparent;
+  border: none;
+  padding: 1px 6px;
+  color: var(--dark-gray);
+  border-radius: 3px;
 }
 
-.actions:hover {
-    cursor: pointer;
-    background-color: var(--light-gray);
+button.actions:hover {
+  cursor: pointer;
+  background-color: var(--light-gray);
+}
+
+.project-stripe {
+  background-color: var(--default-gray);
+}
+
+.project-wrapper {
+  grid-row: 1 / -1;
+  grid-column: 2 / -1;
+  padding: 0 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+div.actions {
+  width: fit-content;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+  font-size: 1rem;
+}
+
+div.actions button {
+  background-color: transparent;
+  color: var(--dark-gray);
+  padding: 1px 6px;
+  border: none;
+}
+
+div.actions button:hover {
+  cursor: pointer;
+  background-color: var(--light-gray);
 }
 
 #full-view {
@@ -328,6 +301,6 @@ button.actions {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--french-gray);
+  color: var(--default-gray);
   text-align: center;
 }
