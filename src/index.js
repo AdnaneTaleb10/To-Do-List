@@ -1,8 +1,17 @@
 import "./css/style.css";
 import setImages from "./modules/logo";
-import { Task, pushTask, displayCards } from "./modules/taskControls";
-import { Project, pushProject, displayProjects } from "./modules/projectControls";
-import { id } from "date-fns/locale";
+import {
+  Task,
+  pushTask,
+  displayCards,
+  newTaskCard,
+} from "./modules/taskControls";
+import {
+  Project,
+  pushProject,
+  displayProjects,
+} from "./modules/projectControls";
+import { filterByPriority, setFiltered } from "./modules/priorities";
 
 let tasks = [];
 let projects = [];
@@ -25,12 +34,13 @@ pushTask(new Task("Main", "Library", "10-10-2050", "medium", "libros"));
 pushProject(new Project("To-do list", "teste.com", "Ah sei lá n sei oq"));
 pushProject(new Project("Outro projeto", "", "Ah sei lá n sei oq"));
 
-window.onload = displayCards()
+window.onload = displayCards();
 
 let homeBtn = document.querySelector("#home");
 homeBtn.addEventListener("click", () => {
   clearCards();
   displayCards();
+  setFiltered(false);
 });
 
 let projectsBtn = document.querySelector("#projects");
@@ -38,6 +48,15 @@ projectsBtn.addEventListener("click", () => {
   clearCards();
   displayProjects();
 });
+
+let highPriorityBtn = document.querySelector("#high");
+highPriorityBtn.addEventListener("click", () => filterByPriority("high"));
+
+let mediumPriorityBtn = document.querySelector("#medium");
+mediumPriorityBtn.addEventListener("click", () => filterByPriority("medium"));
+
+let lowPriorityBtn = document.querySelector("#low");
+lowPriorityBtn.addEventListener("click", () => filterByPriority("low"));
 
 function clearCards() {
   const minView = document.querySelector("#min-view");
