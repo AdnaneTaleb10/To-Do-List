@@ -11,7 +11,6 @@ import {
   pushProject,
   displayProjects,
 } from "./modules/projectControls";
-import { filterByPriority, setFiltered } from "./modules/priorities";
 
 let tasks = [];
 let projects = [];
@@ -34,35 +33,32 @@ pushTask(new Task("Main", "Library", "10-10-2050", "medium", "libros"));
 pushProject(new Project("To-do list", "teste.com", "Ah sei lá n sei oq"));
 pushProject(new Project("Outro projeto", "", "Ah sei lá n sei oq"));
 
-window.onload = displayCards();
-
-let homeBtn = document.querySelector("#home");
+const homeBtn = document.querySelector("#home");
 homeBtn.addEventListener("click", () => {
   clearCards();
   displayCards();
-  setFiltered(false);
+  changeTabLabel("Home");
 });
 
-let projectsBtn = document.querySelector("#projects");
+const projectsBtn = document.querySelector("#projects");
 projectsBtn.addEventListener("click", () => {
   clearCards();
   displayProjects();
+  changeTabLabel("Projects");
 });
 
-let highPriorityBtn = document.querySelector("#high");
-highPriorityBtn.addEventListener("click", () => filterByPriority("high"));
-
-let mediumPriorityBtn = document.querySelector("#medium");
-mediumPriorityBtn.addEventListener("click", () => filterByPriority("medium"));
-
-let lowPriorityBtn = document.querySelector("#low");
-lowPriorityBtn.addEventListener("click", () => filterByPriority("low"));
-
-function clearCards() {
-  const minView = document.querySelector("#min-view");
-  while (minView.lastChild) {
-    minView.removeChild(minView.lastChild);
-  }
+function clearCards(){
+  const allCards = document.querySelectorAll(".card");
+  allCards.forEach((card) => {
+    card.remove();
+  })
 }
 
-export { tasks, projects, clearCards };
+function changeTabLabel(newTab) {
+  const currentTab = document.querySelector("#current-tab");
+  currentTab.textContent = newTab;
+}
+
+window.onload = () => displayCards();
+
+export { tasks, projects, clearCards, changeTabLabel };

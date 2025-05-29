@@ -157,12 +157,21 @@ aside i:hover {
 }
 
 #min-view {
+  position: relative;
   padding: 1.4em 1em;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   gap: 1em;
+}
+
+#current-tab{
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 3rem;
+  color: var(--default-gray);
 }
 
 .high {

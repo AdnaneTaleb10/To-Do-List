@@ -1,5 +1,6 @@
 import create from "../domCreate";
 import { clearCards, tasks } from "..";
+import { filterPriority } from "./priorities";
 
 class Task {
   constructor(taskTitle, projectTitle, dueDate, priority, description) {
@@ -25,7 +26,7 @@ function newTaskCard(task) {
   // | | | Due date
   // | | | Edit task btn
   // | | | Remove task button
-  const card = create.elWithClass("div", "", "task");
+  const card = create.elWithClass("div", "", "task" , "card");
 
   const priority = create.elWithClass("div", "", "priority", task.priority);
 
@@ -94,6 +95,7 @@ function setDatasetIndexTasks() {
 
 function pushTask(task) {
   tasks.push(task);
+  filterPriority(task)
 }
 
 export { Task, newTaskCard, pushTask, displayCards };

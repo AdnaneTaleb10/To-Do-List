@@ -23,7 +23,7 @@ function newProjectCard(project) {
 
   const minView = document.querySelector("#min-view");
 
-  const projectCard = create.elWithClass("div", "", "project-card");
+  const projectCard = create.elWithClass("div", "", "project-card" , "card");
   const stripe = create.elWithClass("div", "", "project-stripe");
   const wrapper = create.elWithClass("div", "", "project-wrapper");
   const info = create.elWithClass("div", "", "info");
