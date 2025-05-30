@@ -166,7 +166,7 @@ aside i:hover {
   gap: 1em;
 }
 
-#current-tab{
+#current-tab {
   position: absolute;
   bottom: 10px;
   right: 20px;
@@ -312,4 +312,51 @@ div.actions button:hover {
   transform: translate(-50%, -50%);
   color: var(--default-gray);
   text-align: center;
+}
+
+form {
+  position: absolute;
+  z-index: 3;
+  place-self: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 2px solid var(--borders-gray);
+  background-color: white;
+  transition: 0.2s ease-in-out;
+}
+
+form > h1 {
+  color: var(--dark-gray);
+  text-align: center;
+}
+
+form > div {
+  padding: 0.5em 1em;
+  display: flex;
+  flex-direction: column;
+  color: var(--black);
+}
+
+form > div > select,
+form > div > input,
+form > div > textarea {
+  resize: none;
+  border: 2px solid var(--borders-gray);
+  color: var(--dark-gray);
+  border-radius: 5px;
+  padding: 2px;
+}
+
+form > div > button{
+  border: none;
+  background-color: var(--logo-blue);
+  color: white;
+  padding: 0.3em  ;
+  border-radius: 5px;
+}
+
+form > div > button:hover{
+  filter: brightness(90%);
+  cursor: pointer;
 }
