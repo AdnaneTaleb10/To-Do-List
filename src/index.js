@@ -11,6 +11,9 @@ import {
   pushProject,
   displayProjects,
 } from "./modules/projectControls";
+import modals from "./modules/modals";
+import { loadHome, loadProjects } from "./modules/tabs";
+import loadModals from "./modules/modals";
 
 let tasks = [];
 let projects = [];
@@ -33,32 +36,16 @@ pushTask(new Task("Main", "Library", "10-10-2050", "medium", "libros"));
 pushProject(new Project("To-do list", "teste.com", "Ah sei lá n sei oq"));
 pushProject(new Project("Outro projeto", "", "Ah sei lá n sei oq"));
 
-const homeBtn = document.querySelector("#home");
-homeBtn.addEventListener("click", () => {
-  clearCards();
-  displayCards();
-  changeTabLabel("Home");
-});
-
-const projectsBtn = document.querySelector("#projects");
-projectsBtn.addEventListener("click", () => {
-  clearCards();
-  displayProjects();
-  changeTabLabel("Projects");
-});
-
-function clearCards(){
+function clearCards() {
   const allCards = document.querySelectorAll(".card");
   allCards.forEach((card) => {
     card.remove();
-  })
+  });
 }
 
-function changeTabLabel(newTab) {
-  const currentTab = document.querySelector("#current-tab");
-  currentTab.textContent = newTab;
-}
+window.onload = () => displayCards(),
+  loadHome(),
+  loadProjects(),
+  loadModals();
 
-window.onload = () => displayCards();
-
-export { tasks, projects, clearCards, changeTabLabel };
+export { tasks, projects, clearCards };

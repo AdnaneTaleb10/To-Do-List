@@ -1,4 +1,5 @@
-import { changeTabLabel, clearCards } from "..";
+import { clearCards } from "..";
+import { changeTabLabel } from "./tabs";
 import { displayCards, newTaskCard } from "./taskControls";
 
 let priority = (function () {
