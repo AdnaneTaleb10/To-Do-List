@@ -11,7 +11,6 @@ import {
   pushProject,
   displayProjects,
 } from "./modules/projectControls";
-import modals from "./modules/modals";
 import { loadHome, loadProjects } from "./modules/tabs";
 import loadModals from "./modules/modals";
 

@@ -362,6 +362,11 @@ div.actions button:hover {
   background-color: rgba(0,0,0,0.4);
 }
 
+#task-form,
+#project-form{
+  visibility: hidden;
+}
+
 form {
   position: absolute;
   z-index: 3;
@@ -397,6 +402,13 @@ form > div > textarea {
   border-radius: 5px;
   padding: 2px;
 }
+
+form > div > select::placeholder,
+form > div > input::placeholder,
+form > div > textarea::placeholder{
+  color: var(--default-gray);
+}
+
 
 form > div > button{
   border: none;

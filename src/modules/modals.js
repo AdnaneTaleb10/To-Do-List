@@ -1,7 +1,10 @@
 const modalOptions = document.querySelector("#modal-options");
 const formsModal = document.querySelector("#modal-form");
+const taskForm = document.querySelector("#task-form");
+const projectFrom = document.querySelector("#project-form");
 const createBtn = document.querySelector("#new-task");
 const createTaskBtn = document.querySelector("#create-task");
+const createProjectBtn = document.querySelector("#create-project");
 
 export default function loadModals() {
   createBtn.addEventListener("click", () => {
@@ -12,14 +15,25 @@ export default function loadModals() {
   createTaskBtn.addEventListener("click", () => {
     modalOptions.style.visibility = "hidden";
     formsModal.style.visibility = "visible";
-    closeModalBheavior(formsModal);
+    taskForm.style.visibility = "visible";
+    projectFrom.style.visibility = "hidden";
+    closeModalBheavior(formsModal , taskForm);
+  });
+
+  createProjectBtn.addEventListener("click", () => {
+    modalOptions.style.visibility = "hidden";
+    formsModal.style.visibility = "visible";
+    projectFrom.style.visibility = "visible";
+    taskForm.style.visibility = "hidden";
+    closeModalBheavior(formsModal , projectFrom);
   });
 }
 
-function closeModalBheavior(modal) {
+function closeModalBheavior(modal , form) {
   window.onclick = (e) => {
     if (e.target === modal) {
       modal.style.visibility = "hidden";
+      form.style.visibility = "hidden";
     }
   };
 }
