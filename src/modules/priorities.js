@@ -29,50 +29,29 @@ function filterPriority(task) {
 
 const lowPriorityBtn = document.querySelector("#low");
 
-lowPriorityBtn.addEventListener("click", () => {
-  if (priority.filtered !== "low") {
-    priority.filtered = "low";
-    clearCards();
-    priority.displayByPrior("low");
-    changeTabLabel("Low Priority");
-  } else {
-    priority.filtered = "null";
-    clearCards();
-    displayCards();
-    changeTabLabel("Home");
-  }
-});
+lowPriorityBtn.addEventListener("click", () => labelFilteredPrior("low"));
 
 const mediumPriorityBtn = document.querySelector("#medium");
 
-mediumPriorityBtn.addEventListener("click", () => {
-  if (priority.filtered !== "medium") {
-    priority.filtered = "medium";
-    clearCards();
-    priority.displayByPrior("medium");
-    changeTabLabel("Medium Priority");
-  } else {
-    priority.filtered = "null";
-    clearCards();
-    displayCards();
-    changeTabLabel("Home");
-  }
-});
+mediumPriorityBtn.addEventListener("click", () => labelFilteredPrior("medium"));
 
 const highPriorityBtn = document.querySelector("#high");
 
-highPriorityBtn.addEventListener("click", () => {
-  if (priority.filtered !== "high") {
-    priority.filtered = "high";
+highPriorityBtn.addEventListener("click", () => labelFilteredPrior("high"));
+
+function labelFilteredPrior(prior) {
+  const formatted = prior.charAt(0).toUpperCase() + prior.slice(1);
+  if (priority.filtered !== prior) {
+    priority.filtered = prior;
     clearCards();
-    priority.displayByPrior("high");
-    changeTabLabel("High Priority");
+    priority.displayByPrior(prior);
+    changeTabLabel(formatted);
   } else {
     priority.filtered = "null";
     clearCards();
     displayCards();
     changeTabLabel("Home");
   }
-});
+}
 
 export { priority, filterPriority };
