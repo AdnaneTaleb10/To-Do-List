@@ -4,6 +4,8 @@ import { displayProjects } from "./projectControls";
 import { displayCards } from "./taskControls";
 
 function loadHome() {
+  displayCards()
+
   const homeTab = document.querySelector("#home");
   homeTab.addEventListener("click", () => {
     clearCards();

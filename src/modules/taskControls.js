@@ -26,7 +26,7 @@ function newTaskCard(task) {
   // | | | Due date
   // | | | Edit task btn
   // | | | Remove task button
-  const card = create.elWithClass("div", "", "task", "card");
+  const card = create.elWithClass("div", "", "task-card", "card");
 
   const priority = create.elWithClass("div", "", "priority", task.priority);
 
@@ -75,7 +75,6 @@ function removeCard(btn) {
 
   clearCards();
   tasks.splice(btnCard.dataset.index, 1);
-  filterPriority();
 }
 
 function displayCards() {
@@ -87,7 +86,7 @@ function displayCards() {
 
 function setDatasetIndexTasks() {
   let index = 0;
-  const Taskcards = document.querySelectorAll(".task");
+  const Taskcards = document.querySelectorAll(".task-card");
   Taskcards.forEach((card) => {
     card.dataset.index = index;
     index++;
@@ -96,7 +95,6 @@ function setDatasetIndexTasks() {
 
 function pushTask(task) {
   tasks.push(task);
-  filterPriority();
 }
 
 export { Task, newTaskCard, pushTask, displayCards };

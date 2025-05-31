@@ -5,6 +5,8 @@ const projectFrom = document.querySelector("#project-form");
 const createBtn = document.querySelector("#new-task");
 const createTaskBtn = document.querySelector("#create-task");
 const createProjectBtn = document.querySelector("#create-project");
+const addTask = document.querySelector("#add-task");
+const addProj = document.querySelector("#add-project");
 
 export default function loadModals() {
   createBtn.addEventListener("click", () => {
@@ -27,6 +29,14 @@ export default function loadModals() {
     taskForm.style.visibility = "hidden";
     closeModalBheavior(formsModal , projectFrom);
   });
+
+  addTask.addEventListener("click" , (event) => {
+    event.preventDefault()
+  })
+
+  addProj.addEventListener("click" , (event) => {
+    event.preventDefault()
+  })
 }
 
 function closeModalBheavior(modal , form) {

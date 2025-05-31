@@ -13,6 +13,7 @@ import {
 } from "./modules/projectControls";
 import { loadHome, loadProjects } from "./modules/tabs";
 import loadModals from "./modules/modals";
+import loadFilter from "./modules/priorities";
 
 let tasks = [];
 let projects = [];
@@ -42,9 +43,6 @@ function clearCards() {
   });
 }
 
-window.onload = () => displayCards(),
-  loadHome(),
-  loadProjects(),
-  loadModals();
+window.onload = () => loadHome(), loadProjects(), loadModals(), loadFilter();
 
 export { tasks, projects, clearCards };
