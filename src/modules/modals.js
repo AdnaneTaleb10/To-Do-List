@@ -1,4 +1,4 @@
-import { clearCards } from "..";
+import { clearCards, projects } from "..";
 import { displayProjects, Project, pushProject } from "./projectControls";
 import { changeTabLabel } from "./tabs";
 import { displayCards, pushTask, Task } from "./taskControls";
@@ -24,6 +24,7 @@ export default function loadModals() {
   createTaskBtn.addEventListener("click", () => {
     modalOptions.style.visibility = "hidden";
     formsModal.style.visibility = "visible";
+    addProjectOption()
     taskForm.reset();
     taskForm.style.display = "block";
     closeModalBheavior(formsModal);
@@ -99,4 +100,26 @@ function submitProj() {
   } else {
     title.style.border = "2px solid var(--red)";
   }
+}
+
+function addProjectOption(){
+  const availableProjects = document.querySelector("#projects-field");
+  while(availableProjects.lastChild){
+    availableProjects.removeChild(availableProjects.lastChild);
+  }
+
+  for(let i = 0 ; i < projects.length; i++){
+    availableProjects.appendChild(createOption(projects[i].projectTitle))
+  }
+
+  if(projects.length === 0){
+    availableProjects.appendChild(createOption("None"))
+  }
+}
+
+function createOption(value){
+  const option = document.createElement("option");
+  option.value = value;
+  option.textContent = value;
+  return option;
 }

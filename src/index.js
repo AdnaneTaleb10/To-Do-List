@@ -33,8 +33,8 @@ pushTask(new Task("Main", "Library", "10-10-2050", "medium", "libros"));
 /* console.table(tasks);
  */
 // And some projects
-pushProject(new Project("To-do list", "teste.com", "Ah sei lá n sei oq"));
-pushProject(new Project("Outro projeto", "", "Ah sei lá n sei oq"));
+/* pushProject(new Project("To-do list", "teste.com", "Ah sei lá n sei oq"));
+pushProject(new Project("Outro projeto", "", "Ah sei lá n sei oq")); */
 
 function clearCards() {
   const allCards = document.querySelectorAll(".card");
