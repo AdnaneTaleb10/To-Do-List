@@ -85,6 +85,13 @@ function displayCards() {
   setDatasetIndexTasks();
 }
 
+function displayCardsByPriority(priority) {
+  clearCards();
+  for (const task of tasks) {
+    if (task.priority === priority) newTaskCard(task);
+  }
+}
+
 function setDatasetIndexTasks() {
   let index = 0;
   const Taskcards = document.querySelectorAll(".task-card");
@@ -98,4 +105,4 @@ function pushTask(task) {
   tasks.push(task);
 }
 
-export { Task, newTaskCard, pushTask, displayCards };
+export { Task, newTaskCard, pushTask, displayCards, displayCardsByPriority };

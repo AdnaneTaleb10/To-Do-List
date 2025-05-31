@@ -3,12 +3,14 @@ import modals from "./modals";
 import { displayProjects } from "./projectControls";
 import { displayCards } from "./taskControls";
 
+let lastTab = "Home";
+
 function loadHome() {
-  displayCards()
+  displayCards();
 
   const homeTab = document.querySelector("#home");
   homeTab.addEventListener("click", () => {
-    clearCards();
+    lastTab = "Home";
     displayCards();
     changeTabLabel("Home");
   });
@@ -17,7 +19,7 @@ function loadHome() {
 function loadProjects() {
   const projectTab = document.querySelector("#projects");
   projectTab.addEventListener("click", () => {
-    clearCards();
+    lastTab = "Projects";
     displayProjects();
     changeTabLabel("Projects");
   });
@@ -28,4 +30,4 @@ function changeTabLabel(newTab) {
   currentTab.textContent = newTab;
 }
 
-export { loadHome, loadProjects, changeTabLabel };
+export { lastTab, loadHome, loadProjects, changeTabLabel };
