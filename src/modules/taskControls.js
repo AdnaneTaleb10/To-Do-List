@@ -78,6 +78,7 @@ function removeCard(btn) {
 }
 
 function displayCards() {
+  clearCards();
   for (const task of tasks) {
     newTaskCard(task);
   }

@@ -362,10 +362,10 @@ div.actions button:hover {
   background-color: rgba(0,0,0,0.4);
 }
 
-#task-form,
+/* #task-form,
 #project-form{
   visibility: hidden;
-}
+} */
 
 form {
   position: absolute;
